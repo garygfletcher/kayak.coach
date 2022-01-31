@@ -11,7 +11,7 @@
         <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet">
-
+        <script type="text/javascript" src="instafeed.js"></script>
     </head>
     <body data-smooth-scroll-offset="77">
         <div class="nav-container">
@@ -195,82 +195,25 @@ Just get in touch to have a chat about what you would like to do. </p>
 
             </section>
 
-
-            <section class="cover imagebg height-50 text-center" data-overlay="3">
-                <div class="background-image-holder"><img alt="background" src="img/hurst_castle.jpg"></div>
-                <div class="container pos-vertical-center">
-                    <div class="row"><!--
-                        <div class="col-md-9 col-lg-8">
-                            <h1>Streamline your workflow with Stack</h1>
-                            <p class="lead">Stack offers a clean and contemporary look to suit a range of purposes from corporate, tech startup, marketing site to digital storefront.</p>
-                        </div>-->
-                    </div>
-                </div>
-                <div class="pos-absolute pos-bottom col-12">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 text-left">
-                                <div class="text-block">
-                                    <h5>Hurst Castle</h5> <span>Solent, Isle of Wight</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="switchable feature-large">
-                <div class="container">
-                    <div class="row justify-content-between">
-                        <div class="col-md-6"> <img alt="Image" class="border--round" src="img/solent_trip.png"> </div>
-                        <div class="col-md-6 col-lg-5">
-                            <div class="switchable__text">
-                                <div class="text-block">
-                                    <h2>Hurst Castle, England to Alum Bay, Isle of Wight</h2> <span>noteable trips</span> </div>
-                                <p> An enjoyable half day paddle across the Solent, experiencing many types of tides, currents, weather conditions and navigation</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="cover imagebg height-50 text-center" data-overlay="3">
-                <div class="background-image-holder"><img alt="background" src="img/thames.JPG"></div>
-                <div class="container pos-vertical-center">
-                    <div class="row"><!--
-                        <div class="col-md-9 col-lg-8">
-                            <h1>Streamline your workflow with Stack</h1>
-                            <p class="lead">Stack offers a clean and contemporary look to suit a range of purposes from corporate, tech startup, marketing site to digital storefront.</p>
-                        </div>-->
-                    </div>
-                </div>
-                <div class="pos-absolute pos-bottom col-12">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12 text-left">
-                                <div class="text-block">
-                                    <h5>Tower Bridge</h5> <span>Thames, London</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="switchable feature-large">
-                <div class="container">
-                    <div class="row justify-content-between">
-                        <div class="col-md-6"> <img alt="Image" class="border--round" src="img/thames_map.jpeg"> </div>
-                        <div class="col-md-6 col-lg-5">
-                            <div class="switchable__text">
-                                <div class="text-block">
-                                    <h2>Greenwich to Putney</h2> <span>noteable trips</span> </div>
-                                <p class="lead"> A very scenic, historic and enjoyable trip on the tidal thames totalling 13 miles taking approx under 3 hours</p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            <!--INSTAGRAM START -->
             <section class="bg">
+                <div class="container">
+                    <div class="row text-block">
+                        <div class="col-md-12">
+                            <h3>Instagram</h3>
+                        </div>
+                    </div>
+                    <div class="row" id="instafeed">
+
+
+
+                    </div>
+                </div>
+                </div>
+            </section>
+            <!--INSTAGRAM END -->
+
+            <section class="bg--secondary">
                 <div class="container">
                     <div class="row text-block">
                         <div class="col-md-12">
@@ -460,6 +403,20 @@ If you've been canoeing before, the introductory 'Paddle Start' sessions are als
         <script src="js/spectragram.min.js"></script>
         <script src="js/smooth-scroll.min.js"></script>
         <script src="js/scripts.js"></script>
+
+
+
+<script type="text/javascript">
+    var feed = new Instafeed({
+      accessToken: 'IGQVJVR3dGRVBwNkJ3UHFhRzJob2kyak9JOThxY3RkMVY2SjF1b2R6RjgydkFzNE1TeHczeDZAIQlpFUXRhYWRmT0piQXF1VjJuUzFjMEVvNUllN1QwSmhOcldxcWZANOHo3NUNXRVczNHlsRUY2eldjRAZDZD',
+      target: 'instafeed',
+      limit: 500,
+      //template: '<a href="{{link}}"><img title="{{caption}}" src="{{image}}" width="30"/></a>',
+      template: '<div class="col-md-4"><article class="feature feature-1"><a href="{{link}}" target="_blank" class="block"> <img alt="{{caption}}" src="{{image}}"> </a><div class="feature__body boxed boxed--border"> <span>Sept 29th 2006</span><h5>{{caption}}</h5></div></article></div>',
+      templateBoundaries: ['{{','}}']
+    });
+    feed.run();
+</script>
 
     </body>
 
