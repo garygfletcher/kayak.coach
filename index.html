@@ -522,7 +522,7 @@
       target: 'instafeed',
       limit: 500,
       //template: '<a href="{{link}}"><img title="{{caption}}" src="{{image}}" width="30"/></a>',
-      template: '<div class="col-md-4"><article class="feature feature-1"><a href="{{link}}" target="_blank" class="block"> <img alt="{{caption}}" src="{{image}}"> </a><div class="feature__body boxed boxed--border"> <span> </span><h5>{{caption}}</h5></div></article></div>',
+      template: '<div class="col-md-4"><article class="feature feature-1"><a href="{{link}}" target="_blank" class="block"> <img alt="{{caption}}" src="{{image}}"> </a><div class="feature__body boxed boxed--border"> <span>{{timestamp}}</span><h5>{{caption}}</h5></div></article></div>',
       templateBoundaries: ['{{', '}}']
     });
     feed.run();
