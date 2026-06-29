@@ -19,9 +19,9 @@
         <link href="css/stack-interface.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
         <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,400i,500,600,700" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700%7CRubik:300,400,500" rel="stylesheet" type="text/css">
-        <link href="css/font-rubiklato.css" rel="stylesheet" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     </head>
     <body data-smooth-scroll-offset="77">
@@ -555,6 +555,12 @@ I am proud of my contributions to paddlesports, inspiring a legacy of safety, ed
                 </div>
             </footer>
         </div>
+        <div class="movie-modal" id="movie-modal" role="dialog" aria-modal="true" aria-label="Movie player" aria-hidden="true">
+            <div class="movie-modal__dialog">
+                <button class="movie-modal__close" type="button" aria-label="Close movie">&times;</button>
+                <iframe class="movie-modal__frame" title="Movie player" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
         <script src="js/jquery-3.1.1.min.js"></script>
         <script src="js/parallax.js"></script>
         <script src="js/isotope.min.js"></script>
@@ -562,6 +568,56 @@ I am proud of my contributions to paddlesports, inspiring a legacy of safety, ed
         <script src="js/spectragram.min.js"></script>
         <script src="js/smooth-scroll.min.js"></script>
         <script src="js/scripts.js"></script>
+        <script>
+            (function () {
+                var modal = document.getElementById('movie-modal');
+                var frame = modal.querySelector('.movie-modal__frame');
+                var closeButton = modal.querySelector('.movie-modal__close');
+                var lastTrigger = null;
+
+                function openMovie(trigger) {
+                    var source = trigger.closest('.video-cover').querySelector('iframe').getAttribute('data-src');
+                    lastTrigger = trigger;
+                    frame.setAttribute('src', source);
+                    modal.classList.add('is-open');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.body.classList.add('movie-modal-open');
+                    closeButton.focus();
+                }
+
+                function closeMovie() {
+                    frame.setAttribute('src', '');
+                    modal.classList.remove('is-open');
+                    modal.setAttribute('aria-hidden', 'true');
+                    document.body.classList.remove('movie-modal-open');
+                    if (lastTrigger) {
+                        lastTrigger.focus();
+                    }
+                }
+
+                document.addEventListener('click', function (event) {
+                    var trigger = event.target.closest('.video-cover .video-play-icon');
+                    if (!trigger) {
+                        return;
+                    }
+                    event.preventDefault();
+                    event.stopPropagation();
+                    openMovie(trigger);
+                }, true);
+
+                closeButton.addEventListener('click', closeMovie);
+                modal.addEventListener('click', function (event) {
+                    if (event.target === modal) {
+                        closeMovie();
+                    }
+                });
+                document.addEventListener('keydown', function (event) {
+                    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+                        closeMovie();
+                    }
+                });
+            }());
+        </script>
 <script>
         document.addEventListener("DOMContentLoaded", function () {
             const endpoint = "https://dbsofurxsf.execute-api.eu-west-1.amazonaws.com/default/getTryingToKayakInsta";
