@@ -99,14 +99,41 @@ h6 {
     transform: scale(1.08);
 }
 
-.video-cover .video-play-icon {
-    transition: transform 220ms ease, box-shadow 220ms ease;
+.motion-ready section.motion-reveal {
+    opacity: 0;
+    transform: translateY(36px);
+    transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.video-cover:hover .video-play-icon,
-.video-cover .video-play-icon:focus {
-    transform: scale(1.1);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+.motion-ready section.motion-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.motion-ready section.motion-reveal .motion-image {
+    opacity: 0;
+    transform: scale(1.035);
+    transition: opacity 900ms ease 120ms, transform 1100ms cubic-bezier(0.2, 0.8, 0.2, 1) 120ms;
+}
+
+.motion-ready section.motion-reveal.is-visible .motion-image {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project-thumb,
+.video-cover {
+    overflow: hidden;
+}
+
+.project-thumb .background-image-holder,
+.video-cover .background-image-holder {
+    transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+section.motion-reveal.is-visible .project-thumb:hover .background-image-holder,
+section.motion-reveal.is-visible .video-cover:hover .background-image-holder {
+    transform: scale(1.025);
 }
 
 body.movie-modal-open {
@@ -117,7 +144,16 @@ body.movie-modal-open {
     .movie-modal,
     .movie-modal__dialog,
     .movie-modal__close,
-    .video-cover .video-play-icon {
+    .motion-ready section.motion-reveal,
+    .motion-ready section.motion-reveal .motion-image,
+    .project-thumb .background-image-holder,
+    .video-cover .background-image-holder {
         transition: none;
+    }
+
+    .motion-ready section.motion-reveal,
+    .motion-ready section.motion-reveal .motion-image {
+        opacity: 1;
+        transform: none;
     }
 }
