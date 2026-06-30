@@ -140,6 +140,38 @@ body.movie-modal-open {
     overflow: hidden;
 }
 
+@media (max-width: 767px) {
+    /*
+     * The theme gives height utility classes vertical padding on mobile,
+     * reducing these landscape images to shallow, heavily cropped strips.
+     * Let the source images establish their natural height instead.
+     */
+    .hero-gallery .project-thumb {
+        height: auto;
+        padding: 0;
+        overflow: visible;
+    }
+
+    .hero-gallery .hover-element__initial,
+    .hero-gallery .background-image-holder {
+        position: relative;
+        height: auto;
+        background: none !important;
+        transform: none !important;
+    }
+
+    .hero-gallery .background-image-holder img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    /* Scaled full-width reveal images can otherwise widen the mobile page. */
+    .motion-ready section.motion-reveal .motion-image {
+        transform: none;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .movie-modal,
     .movie-modal__dialog,
