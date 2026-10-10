@@ -1085,6 +1085,15 @@ main > .section { padding-block: 88px; }
 .experience-photo > img { object-fit: contain; object-position: center; background: #102f32; }
 .experience-copy { border-left: 1px solid #ffffff26; padding-left: 44px; }
 .experience p:not(.eyebrow) { font-size: 14px; line-height: 1.85; }
+.technical-group { display: grid; grid-template-columns: 1fr 1.1fr; gap: 72px; margin-top: 52px; padding-top: 38px; border-top: 1px solid #ffffff26; }
+.technical-group .eyebrow { margin-bottom: 16px; }
+.technical-group h3 { font-size: clamp(26px,3vw,36px); max-width: 360px; }
+.technical-role { display: inline-block; margin-top: 18px; color: var(--lime); font-size: 12px; }
+.technical-links { list-style: none; padding: 0; margin: 24px 0 0; }
+.technical-links li + li { border-top: 1px solid #ffffff26; }
+.technical-links a { display: flex; justify-content: space-between; gap: 18px; padding: 12px 0; color: var(--lime); font-size: 12px; line-height: 1.6; }
+.technical-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 760px) { .technical-group { grid-template-columns: 1fr; gap: 24px; margin-top: 36px; padding-top: 30px; } }
 .signature { margin-top: 20px; }
 .journal { grid-template-columns: 1fr 1fr; gap: 54px; align-items: center; border-bottom: 1px solid var(--line); }
 .journal-image { padding: 18px; background: #eaf0e9; border-radius: 8px; }
